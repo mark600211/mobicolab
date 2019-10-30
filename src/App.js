@@ -1,14 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ServicesComponent from './components/ServicesComponent';
+import AboutusComponent from './components/AboutusComponent';
 import HeaderComponent from './components/HeaderComponent';
+
 
 function App() {
   return (
     <div className="App">
       <HeaderComponent />
-      <ServicesComponent />
+      <AboutusComponent />
     </div>
   );
 }

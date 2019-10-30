@@ -7,10 +7,7 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
+} from 'reactstrap';
 
 
 
@@ -34,7 +31,7 @@ class NavbarComponent extends Component {
     render() {
         return (
             <div>
-                <Navbar color="dark" dark expand="md">
+                <Navbar className="sticky-top" color="dark" dark expand="md">
                     <NavbarBrand href="/">
                         <img className="logo_navbar" object src="assets/images/list_logo.png" alt="Logo" />
                     </NavbarBrand>
@@ -50,9 +47,9 @@ class NavbarComponent extends Component {
                             <NavItem>
                                 <NavLink href="#">Контакты</NavLink>
                             </NavItem>
-                         </Nav>
-                     </Collapse>
-                 </Navbar>
+                        </Nav>
+                    </Collapse>
+                </Navbar>
             </div>
         );
     }
