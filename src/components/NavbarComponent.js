@@ -19,7 +19,18 @@ class NavbarComponent extends Component {
         this.toggleNav = this.toggleNav.bind(this);
         this.state = {
             isNavOpen: false,
+            navbarOnTop: false
         }
+
+        this.handleStick = this.handleStick.bind(this)
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleStick);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleStick);
     }
 
     toggleNav() {
@@ -28,10 +39,24 @@ class NavbarComponent extends Component {
         });
     }
 
+    handleStick() {
+        if (window.screenY < 100) {
+            console.log("should lock");
+            this.setState({
+                navbarOnTop: true
+            });
+        } else {
+            console.log("not locked");
+            this.setState({
+                navbarOnTop: false
+            });
+        }
+    }
+
     render() {
         return (
             <div>
-                <Navbar className="sticky-top" color="dark" dark expand="md">
+                <Navbar className="sticky-top" style={{ position: this.state.navbarOnTop ?  "fixed" : "relative" }} color="dark" dark expand="md">
                     <NavbarBrand href="/">
                         <img className="logo_navbar" object src="assets/images/list_logo.png" alt="Logo" />
                     </NavbarBrand>
